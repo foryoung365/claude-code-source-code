@@ -1,5 +1,0 @@
-[shell_environment_policy]
-inherit = "core"
-
-[shell_environment_policy.set]
-SAFE_RW_EXTS = ".c,.cc,.cpp,.cxx,.h,.hh,.hpp,.hxx,.inl,.sql,.proto"
