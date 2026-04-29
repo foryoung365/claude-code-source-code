@@ -1,0 +1,3 @@
+[submodule "safe-read-write-mcp"]
+	path = safe-read-write-mcp
+	url = git@github.com:foryoung365/gbk-safe-rw-mcp.git

@@ -1,0 +1,32 @@
+{
+  "env": {
+    "SAFE_RW_EXTS": ".c,.cc,.cpp,.cxx,.h,.hh,.hpp,.hxx,.inl,.sql,.proto"
+  },
+  "enabledMcpjsonServers": ["safe_rw"],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Write|Edit|Grep|Search|Glob|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node safe-read-write-mcp/dist/safe-rw-guard.js",
+            "timeout": 5,
+            "statusMessage": "检查 GBK 安全读写策略"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__safe_rw__safe_read|mcp__safe_rw__safe_write|mcp__safe_rw__safe_edit|mcp__safe_rw__safe_search",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node safe-read-write-mcp/dist/safe-rw-guard.js",
+            "timeout": 5,
+            "statusMessage": "规范化 safe read/write/edit/search 路径"
+          }
+        ]
+      }
+    ]
+  }
+}
